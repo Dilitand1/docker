@@ -1,0 +1,21 @@
+version: "3.2"
+services:
+
+  test-database:
+    build: ./mssql_database
+    ports:
+      - "1433:1433"
+    environment:
+        SA_PASSWORD: "Super_puper_password"
+        ACCEPT_EULA: "Y"
+        TZ: "UTC"
+
+#Чтобы можно было инициализировать сразу БД нужно создать файлы entrypoint и import-data по примеру.
+
+
+#docker-compose up -d --build
+#docker exec -it 26fac6ca2e79 sh
+#docker exec -it 26fac6ca2e79 bash
+#/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Super_puper_password
+
+#docker container prune -f
