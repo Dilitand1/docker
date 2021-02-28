@@ -1,6 +1,6 @@
 FROM microsoft/mssql-server-linux:2017-latest
 
-COPY setup.sql /docker-entrypoint-initdb.d/
+COPY *.sql /docker-entrypoint-initdb.d/
 COPY entrypoint.sh /docker-entrypoint-initdb.d/
 COPY import-data.sh /docker-entrypoint-initdb.d/
 
@@ -14,6 +14,8 @@ COPY import-data.sh /docker-entrypoint-initdb.d/
 
 #Даем права на энтрипоинт
 RUN chmod +x /docker-entrypoint-initdb.d/entrypoint.sh
+RUN chmod +x /docker-entrypoint-initdb.d/setup2.sql
+RUN chmod +x /docker-entrypoint-initdb.d/setup.sql
 
 #Говорим докеру запустить наш энтрипоинт
 #ENTRYPOINT /bin/bash /docker-entrypoint-initdb.d/import-data.sh
