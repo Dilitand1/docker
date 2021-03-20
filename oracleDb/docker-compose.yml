@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  oracleDb:
+    build: ./oracle_database
+    ports: "49161:1521"
+    #image: store/oracle/database-enterprise:12.2.0.1
+
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: my_database_name
+
+##docker-compose up -d --build
