@@ -8,4 +8,4 @@ for /F %i in ('docker images -a -q') do docker rmi -f %i
 docker exec -it 26fac6ca2e79 bash
 
 Запуск компоуза в фоне
-docker-compose up -d --build 
+docker-compose up -d --build
