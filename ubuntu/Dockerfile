@@ -1,0 +1,20 @@
+# Pull base image.
+FROM ubuntu:18.04
+ 
+LABEL maintainer="Dmitriy L <cobrasuper@yandex.ru>"
+ 
+# Install updates to base image
+RUN apt-get update -y && apt-get install -y && apt-get install rpm -y && apt install net-tools -y && apt-get install sudo -y \
+# Install java
+    && apt-get install -y openjdk-11-jdk ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f
+# sudo apt-get -y install python3-pip
+
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
+
+COPY TestApp.jar app.jar
+
+EXPOSE 6080
+
+ENTRYPOINT ["java","-jar","/app.jar"]
