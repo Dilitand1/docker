@@ -15,6 +15,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
 
 COPY TestApp.jar app.jar
 
-EXPOSE 6080
+EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/app.jar"]
