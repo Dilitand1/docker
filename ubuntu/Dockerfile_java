@@ -1,8 +1,6 @@
 # Pull base image.
 FROM ubuntu:18.04
  
-LABEL maintainer="Dmitriy L <cobrasuper@yandex.ru>"
- 
 # Install updates to base image
 RUN apt-get update -y && apt-get install -y && apt-get install rpm -y && apt install net-tools -y && apt-get install sudo -y \
 # Install java

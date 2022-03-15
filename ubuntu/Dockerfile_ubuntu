@@ -1,0 +1,5 @@
+# Pull base image.
+FROM ubuntu:18.04
+ 
+# Install updates to base image
+RUN apt-get update -y && apt-get install -y && apt-get install rpm -y && apt install net-tools -y && apt-get install sudo -y
