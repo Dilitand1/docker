@@ -1,4 +1,4 @@
-# Pull base image.
+# Pull base image. (очень большой имадж получается для java лучше использовать docker образ openjdk:8-jdk-alpine)
 FROM ubuntu:18.04
  
 # Install updates to base image
@@ -13,6 +13,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
 
 COPY TestApp.jar app.jar
 
-EXPOSE 8080
+EXPOSE 8890
 
 ENTRYPOINT ["java","-jar","/app.jar"]

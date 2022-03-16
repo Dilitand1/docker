@@ -1,14 +1,5 @@
-you should remove the maven-jar-plugin
+mvn package spring-boot:repackage
 
-modify spring-boot-maven-plugin to:
-
- <plugin>
-     <groupId>org.springframework.boot</groupId>
-     <artifactId>spring-boot-maven-plugin</artifactId>
-     <version>2.0.3.RELEASE</version>
-     <configuration>
-         <mainClass>com.game.Main</mainClass> 
-     </configuration>
- </plugin>
-
-you can execute mvn package spring-boot:repackage to generate the executable jar
+#запуск
+#docker build -f Dockerfile -t dilitand/java:latest .
+#docker run -d -p 6060:8890 dilitand/java:latest

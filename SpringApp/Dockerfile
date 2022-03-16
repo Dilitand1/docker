@@ -3,11 +3,11 @@ FROM openjdk:8-jdk-alpine
 #ARG JAR_FILE=target/*.jar
 #COPY ${JAR_FILE} app.jar
 
-EXPOSE 8080
+EXPOSE 8890
 
 COPY target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
 #запуск
-#docker build -t springapp1 .
-#docker run -d -p 8080:8080 springapp1
+#docker build -f Dockerfile -t dilitand/java:latest .
+#docker run -d -p 6060:8890 dilitand/java:latest

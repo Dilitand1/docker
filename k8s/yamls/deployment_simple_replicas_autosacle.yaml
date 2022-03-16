@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment-autoscale
+  labels:
+    app: my-k8s-app-scale
+    env: prod
+    owner: dimas
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: scale
+  template:
+    metadata:
+      labels:
+        project: scale
+    spec:
+      containers:
+        - name: scale-web
+          image: dilitand/java:latest
+          ports:
+            - containerPort: 8890
+
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-autoscaling
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v2beta1v1
+    kind: Deployment
+    name: my-web-deployment-autoscale
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: 80
