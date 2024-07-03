@@ -1,0 +1,1 @@
+echo "Installing certs to JDK" 

@@ -21,3 +21,7 @@ docker-compose up -d --build
 Указать имя докеримэдж: -t imagename .
 Посмотреть все контейнеры: docker ps -a
 Посмотреть все image: docker images
+Удалить image: docker rmi imagename
+Запустить контейнер: docker start 08524d86e503 -i
+
+Запустить имадж с командой bash: docker run --rm -it --entrypoint bash java_test
