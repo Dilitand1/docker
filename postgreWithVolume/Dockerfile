@@ -9,12 +9,11 @@ ENV POSTGRES_PASSWORD=password
 COPY *.sql /docker-entrypoint-initdb.d/
 
 #Сначаал создаем волюм
-#docker volume create --name postgresqlVolume -d local
-#docker build -f dockerfile -t testdoc .
-#docker run --name postgres-0 -d -v postgresqlVolume:/var/lib/postgresql/data -p 5435:5432  testdoc
-
-#По идее надо так, но оказалось на винде с постгре так нельзя
-#docker run --name postgres-0 -e POSTGRES_PASSWORD=password -d -p 5435:5432 -v C:/Users/Dilit/IdeaProjects/mydocker/postgreWithVolume/pgVolume:/var/lib/postgresql/data testdoc
+#docker volume create myVolume --opt type=none --opt device=C:\Users\Dilit\IdeaProjects\docker\postgreWithVolume\volume2 --opt o=bind
+#docker build -f Dockerfile -t image_name .
+#docker run --name postgres-3 -d -v myVolume:/var/lib/postgresql/data -p 5436:5433 image_name
+#либо путь напрямую
+#docker run --name postgres-0 -d -v C:\Users\Dilit\IdeaProjects\paima\volume:/var/lib/postgresql/data -p 5435:5432 image_name
 
 #docker kill postgres-0
 #docker logs postgres-0
